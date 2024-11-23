@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-primary{
+
+    background-color:#3083FF
+}
+.text-primary{
+
+    color: #3083FF;
+}
+
+@font-face {
+    font-family: 'PlusJakartaSans-Bold';
+    src: url('./assets/fonts/PlusJakartaSans-ExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PlusJakartaSans-Medium';
+    src: url('./assets/fonts/PlusJakartaSans-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PlusJakartaSans-Regular';
+    src: url('./assets/fonts/PlusJakartaSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.PlusJakartaSans-Bold {
+    font-family: 'PlusJakartaSans-Bold', sans-serif; /* Fallback to sans-serif */
+}
+.PlusJakartaSans-Medium {
+    font-family: 'PlusJakartaSans-Medium', sans-serif; /* Fallback to sans-serif */
+}
+.PlusJakartaSans-Regular {
+    font-family: 'PlusJakartaSans-Regular', sans-serif; /* Fallback to sans-serif */
+}
+
+
