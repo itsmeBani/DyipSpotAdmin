@@ -10,22 +10,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the code
-      - name: Checkout code
+      # Step 1: Check out the repository code
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Step 2: Install dependencies and build the project
-      - name: Install and Build
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18  # Replace with the Node.js version required by your project
+
+      # Step 3: Install dependencies and build the project
+      - name: Install Dependencies and Build
         run: |
           npm install
-          npm run build
+          npm run build  # Ensure this matches your build script in package.json
 
-      # Step 3: Deploy to Hostinger via FTP
-      - name: Deploy to Hostinger
+      # Step 4: Deploy to Hostinger using FTP
+      - name: Deploy to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.6
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: dist/  # Path to your build folder
-          server-dir: /public_html/  # Path on your Hostinger server
+          server: ${{ secrets.FTP_HOST }}       # Add your Hostinger FTP hostname in GitHub secrets
+          username: ${{ secrets.FTP_USERNAME }} # Add your Hostinger FTP username in GitHub secrets
+          password: ${{ secrets.FTP_PASSWORD }} # Add your Hostinger FTP password in GitHub secrets
+          local-dir: dist/                      # Vite's default output folder for builds
+          server-dir: /public_html/             # Replace with your desired directory on the Hostinger server
