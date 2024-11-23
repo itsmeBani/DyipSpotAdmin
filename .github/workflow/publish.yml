@@ -1,0 +1,31 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main  # Deploy only on pushes to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Install dependencies and build the project
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build
+
+      # Step 3: Deploy to Hostinger via FTP
+      - name: Deploy to Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@4.3.6
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: dist/  # Path to your build folder
+          server-dir: /public_html/  # Path on your Hostinger server
