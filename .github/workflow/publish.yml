@@ -33,5 +33,5 @@ jobs:
           server: ${{ secrets.FTP_HOST }}       # Add your Hostinger FTP hostname in GitHub secrets
           username: ${{ secrets.FTP_USERNAME }} # Add your Hostinger FTP username in GitHub secrets
           password: ${{ secrets.FTP_PASSWORD }} # Add your Hostinger FTP password in GitHub secrets
-          local-dir: dist/                      # Vite's default output folder for builds
-          server-dir: /public_html/             # Replace with your desired directory on the Hostinger server
+          local-dir: dist/
+          server-dir: /public_html/
