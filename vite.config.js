@@ -14,5 +14,6 @@ export default defineConfig({
     outDir: 'dist',  // The folder where your build files will be output
     minify: 'esbuild',  // Minify the build for smaller file sizes
     sourcemap: false,  // Disable sourcemaps in production (optional)
-  }
+  },
+  base: '/admin/'
 })
