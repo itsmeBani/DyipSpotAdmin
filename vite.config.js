@@ -15,5 +15,5 @@ export default defineConfig({
     minify: 'esbuild',  // Minify the build for smaller file sizes
     sourcemap: false,  // Disable sourcemaps in production (optional)
   },
-  base: '/admin/'
+  base: './'
 })
